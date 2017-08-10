@@ -25,6 +25,22 @@ Go through the same steps from the lesson/activity and apply them to your custom
 7. Create the login web page
 8. Add the login route to the controller
 
+### You will NEED the users table 
+Create a users table:
+* `CREATE TABLE users (username text not null, password text not null, enabled boolean, constraint users_pkey primary key (username));`
+
+Create a authorities table:
+* `CREATE TABLE authorities (username text not null, authority text not null, constraint authorities_pkey primary key (username, authority));`
+
+Add users
+* `insert into users (username, password, enabled) values ('zoe', 'verse', true);`
+* `insert into users (username, password, enabled) values ('kaylee', 'shiny', true);`
+
+Add roles
+* `insert into authorities (username, authority) values ('zoe', 'ROLE_USER');`
+* `insert into authorities (username, authority) values ('kaylee', 'ROLE_USER');`
+* `insert into authorities (username, authority) values ('zoe', 'ROLE_ADMIN');`
+
 ## Extra
 * Add the ability to logout.
 * Add at least one more web page the is only accessible by an admin user
